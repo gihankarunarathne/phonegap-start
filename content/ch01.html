@@ -14,17 +14,7 @@
               txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
               txt_please_wait = "Please wait. Search in progress...";
               txt_results_for = "Results for: ";
-            </script><script type="text/javascript" src="../js/browserDetect.js"><!--//jQuery--></script><script type="text/javascript" src="../js/jquery-1.7.1.min.js"><!--//jQuery--></script><script type="text/javascript" src="../js/jquery.cookie.min.js"><!--include mobile menubar js--></script><script type="text/javascript" src="../js/mobile-menubar.js"><!--mobile-menubar--></script><script type="text/javascript" src="../js/mobile-settings.js"><!--include mobile settings js--></script><script type="text/javascript" src="search/l10n.js"><!--l10n--></script><script type="text/javascript" src="search/htmlFileInfoList.js"><!--htmlFileInfoList--></script><script type="text/javascript" src="search/nwSearchFnt.js"><!--nwSearchFnt--></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"><!--make scalable to other languages as well.--></script><script type="text/javascript" src="search/index-1.js"><!--index-1--></script><script type="text/javascript" src="search/index-2.js"><!--index-2--></script><script type="text/javascript" src="search/index-3.js"><!--index-3--></script><script type="text/javascript" charset="utf-8">
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-          document.addEventListener("menubutton", onMenuKeyDown, false);
-        }
-
-        function onMenuKeyDown() {
-          $.mobile.changePage("settings.html");
-        }
-		</script><script type="text/javascript" src="../js/jquery.mobile-1.1.0.min.js"><!----></script></head><body><div data-role="page" id="id_ch01_html"><!--KEEP THIS CODE--><div data-role="header" data-theme="b" data-position="fixed"><h4>Introduction</h4><!----> <a accesskey="n" data-role="button" data-icon="grid" class="ui-btn-right" data-iconpos="notext" data-theme="a" href="tapholdDialog.html" data-inline="true" data-rel="dialog" data-transition="flip">Options</a><script type="text/javascript">        
+            </script><script type="text/javascript" src="../js/browserDetect.js"><!--//jQuery--></script><script type="text/javascript" src="../js/jquery-1.7.1.min.js"><!--//jQuery--></script><script type="text/javascript" src="../js/jquery.cookie.min.js"><!--include mobile menubar js--></script><script type="text/javascript" src="../js/mobile-menubar.js"><!--mobile-menubar--></script><script type="text/javascript" src="../js/mobile-settings.js"><!--include mobile settings js--></script><script type="text/javascript" src="search/l10n.js"><!--l10n--></script><script type="text/javascript" src="search/htmlFileInfoList.js"><!--htmlFileInfoList--></script><script type="text/javascript" src="search/nwSearchFnt.js"><!--nwSearchFnt--></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"><!--make scalable to other languages as well.--></script><script type="text/javascript" src="search/index-1.js"><!--index-1--></script><script type="text/javascript" src="search/index-2.js"><!--index-2--></script><script type="text/javascript" src="search/index-3.js"><!--index-3--></script><script type="text/javascript" src="../js/jquery.mobile-1.1.0.min.js"><!----></script></head><body><div data-role="page" id="id_ch01_html"><!--KEEP THIS CODE--><div data-role="header" data-theme="b" data-position="fixed"><h4>Introduction</h4><!----> <a accesskey="n" data-role="button" data-icon="grid" class="ui-btn-right" data-iconpos="notext" data-theme="a" href="tapholdDialog.html" data-inline="true" data-rel="dialog" data-transition="flip">Options</a><script type="text/javascript">        
         $(function() {
           var $nextPage="index.html";
           var $prevPage="ch02.html";
@@ -33,7 +23,7 @@
           $("#id_ch01_html").live('swipeleft', function(event) {
             if("swipeLeft" === $.cookie('nextpage') ){
               $.mobile.changePage($nextPage);
-            }else{
+            }else if("swipeLeft" == $.cookie('prevpage') ){
               $.mobile.changePage($prevPage);
             }
           });
@@ -41,19 +31,13 @@
           $("#id_ch01_html").live('swiperight', function(event) {
             if("swipeRight" === $.cookie('prevpage') ){
               $.mobile.changePage($prevPage);
-            }else{
+              }else if("swipeRight" === $.cookie('nextpage') ){
               $.mobile.changePage($nextPage);
             }
           });
-        
-          //if taphold feature enabled
-          $("#id_ch01_html_taphold").hide();
-          $("#id_ch01_html").live('taphold', function(event) {
-            $("#id_ch01_html_taphold").click();
-          });
          
         });
-			</script></div><div data-role="content" id="bodyone"><a href="tapholdDialog.html" data-role="button" data-inline="true" data-rel="dialog" data-transition="flip" id="id_ch01_html_taphold"></a><div id="content"><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="d0e129"></a>Introduction</h1></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><p>Overview of the package.</p></div></div></div></div><p>A common requirement for technical publications groups is to produce a Web-based help
+			</script></div><div data-role="content" id="bodyone"><div id="content"><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="d0e129"></a>Introduction</h1></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><p>Overview of the package.</p></div></div></div></div><p>A common requirement for technical publications groups is to produce a Web-based help
       format that includes a table of contents pane, a search feature, and an index similar to what
       you get from the Microsoft HTML Help (.chm) format or Eclipse help. If the content is help for
       a Web application that is not exposed to the Internet or requires that the user be logged in,
